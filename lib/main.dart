@@ -11,56 +11,35 @@ class XylophoneApp extends StatelessWidget {
     audioPlayer.play('note$soundNo.wav');
   }
 
+  Widget BuildKey(int soundNote ,Color color ){
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: (){
+          PlaySound(soundNote);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                FlatButton(
-                  color: Colors.red,
-                  onPressed: (){
-                    PlaySound(1);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.orange,
-                  onPressed: (){
-                    PlaySound(2);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.yellow,
-                  onPressed: (){
-                    PlaySound(3);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.green,
-                  onPressed: (){
-                    PlaySound(4);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.teal,
-                  onPressed: (){
-                    PlaySound(5);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  onPressed: (){
-                    PlaySound(6);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.deepPurpleAccent,
-                  onPressed: (){
-                    PlaySound(7);
-                  },
-                ),
+                BuildKey(1 , Colors.red),
+                BuildKey(2 , Colors.orange),
+                BuildKey(3 , Colors.yellow),
+                BuildKey(4 , Colors.green),
+                BuildKey(5 , Colors.teal),
+                BuildKey(6 , Colors.blue),
+                BuildKey(7 , Colors.purple),
+
               ],
             ),
           ),
